@@ -17,3 +17,10 @@
 
 
 ### Static files
+
+
+heroku login
+heroku apps:create se-lab-pro
+git remote -v
+heroku config:set DEBUG=True
+heroku config:set DISABLE_COLLECTSTATIC=1
