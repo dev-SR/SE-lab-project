@@ -19,8 +19,13 @@
 ### Static files
 
 
+
+```bash
 heroku login
 heroku apps:create se-lab-pro
 git remote -v
+heroku plugins:install heroku-config
+heroku config:push
 heroku config:set DEBUG=True
 heroku config:set DISABLE_COLLECTSTATIC=1
+```
