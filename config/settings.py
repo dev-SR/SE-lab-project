@@ -48,6 +48,7 @@ PROJECT_APP = [
     "reviews",
     "reservations",
     "lists",
+    "conversations",
 ]
 
 
