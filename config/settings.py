@@ -32,18 +32,23 @@ ALLOWED_HOSTS = [host.strip() for host in config(
 
 
 # Application definition
-
-INSTALLED_APPS = [
+DJANGO_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'users',
-    #
-    # 'app'
 ]
+
+PROJECT_APP = [
+    'core',
+    'users',
+    "rooms"
+]
+THIRD_PARTY_APPS = ['django-countries']
+INSTALLED_APPS = DJANGO_APPS + PROJECT_APP  # + THIRD_PARTY_APPS
+
 AUTH_USER_MODEL = 'users.User'
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
