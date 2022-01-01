@@ -7,6 +7,7 @@
     - [Add Environment Variables](#add-environment-variables)
     - [Configuring the DataBase](#configuring-the-database)
     - [Static files](#static-files)
+    - [Heroku Deployment](#heroku-deployment)
 
 ## Introduction
 
@@ -80,16 +81,38 @@ class UserAdmin(UserAdmin):
 
 ### Static files
 
+### Heroku Deployment
 
 ```bash
+# init heroku app
 heroku login
 heroku apps:create se-lab-pro
-git remote -v
-heroku plugins:install heroku-config
-heroku config:push
+git remote -v # check if heroku remote is added
+
+# View current config var values
+heroku config
+# Set a config var
 heroku config:set DEBUG=True
+
+# to Push and pull your Heroku configs to your local environment(.env), install the Heroku plugin.
+# https://github.com/xavdid/heroku-config
+# This package includes two commands:
+# heroku config:pull: Writes the contents of heroku config into a local file(.env)
+# heroku config:push: Writes the contents of a local file(.env) into heroku config
+heroku plugins:install heroku-config
+# Sending configs from .env to Heroku
+heroku config:push
+
+# You may need to disable the collectstatic
 heroku config:set DISABLE_COLLECTSTATIC=1
 
+
+# Publishing the app
+git add .
+git commit -m 'Configuring the app'
+git push heroku master --force
+
+# migrate default database
 heroku run python manage.py migrate
 heroku run python manage.py createsuperuser
 
