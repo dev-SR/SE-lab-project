@@ -1,12 +1,12 @@
 # Software Engineering Lab Project Using Django
 
 - [Software Engineering Lab Project Using Django](#software-engineering-lab-project-using-django)
-	- [Introduction](#introduction)
-	- [Custom Admin User](#custom-admin-user)
-	- [Deployment](#deployment)
-		- [Add Environment Variables](#add-environment-variables)
-		- [Configuring the DataBase](#configuring-the-database)
-		- [Static files](#static-files)
+  - [Introduction](#introduction)
+  - [Custom Admin User](#custom-admin-user)
+  - [Deployment](#deployment)
+    - [Add Environment Variables](#add-environment-variables)
+    - [Configuring the DataBase](#configuring-the-database)
+    - [Static files](#static-files)
 
 ## Introduction
 
@@ -81,7 +81,6 @@ class UserAdmin(UserAdmin):
 ### Static files
 
 
-
 ```bash
 heroku login
 heroku apps:create se-lab-pro
@@ -90,4 +89,8 @@ heroku plugins:install heroku-config
 heroku config:push
 heroku config:set DEBUG=True
 heroku config:set DISABLE_COLLECTSTATIC=1
+
+heroku run python manage.py migrate
+heroku run python manage.py createsuperuser
+
 ```
