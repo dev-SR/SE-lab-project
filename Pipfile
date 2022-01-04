@@ -12,6 +12,7 @@ gunicorn = "*"
 psycopg2 = "*"
 pillow = "*"
 django-countries = "*"
+django-seed = "*"
 
 [dev-packages]
 autopep8 = "*"

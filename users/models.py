@@ -28,6 +28,17 @@ class User(AbstractUser):
         (CURRENCY_BDT, "BDT"),
         (CURRENCY_USD, "USD")
     )
+    LOGIN_EMAIL = "email"
+    LOGIN_GITHUB = "github"
+    LOGIN_GOOGLE = "google"
+    LOGIN_FACEBOOK = "facebook"
+
+    LOGIN_CHOICES = (
+        (LOGIN_EMAIL, "Email"),
+        (LOGIN_GITHUB, "Github"),
+        (LOGIN_GOOGLE, "Google"),
+        (LOGIN_FACEBOOK, "Facebook"),
+    )
 
     avatar = models.ImageField(null=True, blank=True)
     # null=True is for database, blank=True is for admin form
@@ -40,3 +51,8 @@ class User(AbstractUser):
     currency = models.CharField(
         choices=CURRENCY_CHOICES, max_length=3, null=True, blank=True)
     superhost = models.BooleanField(default=False)
+    email_verified = models.BooleanField(default=False)
+    email_secret = models.CharField(max_length=20, default="", blank=True)
+    login_method = models.CharField(
+        max_length=50, choices=LOGIN_CHOICES, default=LOGIN_EMAIL
+    )

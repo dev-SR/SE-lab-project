@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 from decouple import config
 import dj_database_url
 from pathlib import Path
+import os
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -33,6 +35,7 @@ ALLOWED_HOSTS = [host.strip() for host in config(
 
 # Application definition
 DJANGO_APPS = [
+    # 'django-countries',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -52,7 +55,7 @@ PROJECT_APP = [
 ]
 
 
-THIRD_PARTY_APPS = ['django-countries']
+THIRD_PARTY_APPS = ['django-countries', 'django-seed']
 INSTALLED_APPS = DJANGO_APPS + PROJECT_APP  # + THIRD_PARTY_APPS
 
 AUTH_USER_MODEL = 'users.User'
@@ -147,3 +150,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
+MEDIA_ROOT = os.path.join(BASE_DIR, "uploads")
+MEDIA_URL = "/media/"
