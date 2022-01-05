@@ -3,6 +3,7 @@
 - [Software Engineering Lab Project Using Django](#software-engineering-lab-project-using-django)
   - [Introduction](#introduction)
   - [Custom Admin User](#custom-admin-user)
+  - [Seed Data](#seed-data)
   - [Deployment](#deployment)
     - [Add Environment Variables](#add-environment-variables)
     - [Configuring the DataBase](#configuring-the-database)
@@ -71,6 +72,15 @@ class UserAdmin(UserAdmin):
          )
 ```
 
+## Seed Data
+
+```bash
+python manage.py seed_users
+python manage.py seed_roomtypes
+python manage.py seed_amenities
+python manage.py seed_facilities
+python manage.py seed_rooms --n 10
+```
 
 ## Deployment
 
