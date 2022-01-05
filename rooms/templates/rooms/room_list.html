@@ -1,14 +1,34 @@
-{% extends 'base.html' %}
-
+{% extends "base.html" %}
+{% load static i18n %}
 {% block page_title %}
-	Rooms
+    Home
 {% endblock page_title %}
 
 {% block content %}
-  {% for room  in rooms %}
-  {% comment %} <a href="{% url 'rooms:detail' room.pk %}"> {% endcomment %}
-    <a href="{% url 'rooms:detail' room.pk %}">
-      <h2>{{room.name}} / ${{room.price}}</h2>
-    </a>
-  {% endfor %}
+
+    <div class="container pb-10">
+
+        <div class="flex flex-wrap mb-10">
+            {% for room in rooms  %}
+                {% include 'rooms/mixins/room_card.html' with room=room %}
+            {% endfor %}
+        </div>
+        <div class="flex items-center justify-center mx-auto container">
+            {% if page_obj.has_previous %}
+                <a href="?page={{page_obj.previous_page_number}}" class="text-indigo-500 font-medium">
+                    Previous
+                </a>
+            {% endif %}
+
+            <span class="mx-3 font-medium text-lg">
+                {% blocktrans with current_page=page_obj.number total_pages=page_obj.paginator.num_pages %}Page {{current_page}} of {{total_pages}}{% endblocktrans %}
+            </span>
+
+            {% if page_obj.has_next  %}
+                <a href="?page={{page_obj.next_page_number}}" class="text-indigo-500 font-medium">
+                    Next
+                </a>
+            {% endif %}
+        </div>
+    </div>
 {% endblock content %}
