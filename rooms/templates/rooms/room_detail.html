@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% comment %} {% load is_booked on_favs i18n %} {% endcomment %}
+
+{% block page_title %}
+    {{room.name}}
+{% endblock page_title %}
+
+{% block content %}
+
+<div>
+	<h1>{{room.name}}</h1>
+	<h3>{{room.description}}</h3>
+</div>
+
+<div>
+
+</div>
+
+
+{% endblock content %}

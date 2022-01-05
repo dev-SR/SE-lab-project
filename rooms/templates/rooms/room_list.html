@@ -6,9 +6,9 @@
 
 {% block content %}
   {% for room  in rooms %}
-
-  <h2>{{room.name}} / ${{room.price}}</h2>
-
-
+  {% comment %} <a href="{% url 'rooms:detail' room.pk %}"> {% endcomment %}
+    <a href="{% url 'rooms:detail' room.pk %}">
+      <h2>{{room.name}} / ${{room.price}}</h2>
+    </a>
   {% endfor %}
 {% endblock content %}

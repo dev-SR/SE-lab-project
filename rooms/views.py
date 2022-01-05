@@ -13,3 +13,10 @@ class HomeView(ListView):
     paginate_orphans = 5
     ordering = "created_at"
     context_object_name = "rooms"
+
+
+class RoomDetail(DetailView):
+
+    """ RoomDetail Definition """
+
+    model = Room
