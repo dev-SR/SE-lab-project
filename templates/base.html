@@ -12,6 +12,12 @@
 	<header>
 
       {% include "partials/nav.html" %}
+	  {% block search-bar %}
+	  <form action="{% url 'rooms:search' %}" method="get">
+		  <input type="text" name='city' placeholder="Search By City">
+	  </form>
+	  {% endblock search-bar %}
+
 
 	</header>
 
