@@ -9,19 +9,22 @@
 
 {% block content %}
 
-<div class="input w-full {% if field.errors %}has_error{% endif %}">
-    {% comment %} {{field}}
-    {% if field.errors %}
-        {% for error in field.errors %}
-            <span class="text-red-700 font-medium text-sm">{{error}}</span>
-        {% endfor %}
-    {% endif %} {% endcomment %}
-	<form action="{% url 'users:login' %}" method="post">
-		{% csrf_token %}
-		{{form.as_p}}
-		<button>Login</button>
-        Or <a href="{% url 'users:signup' %}">Sing UP</a>
-	</form>
-
+<div class="h-75vh  flex justify-center items-center flex-col">
+	 <form action="" method="post" novalidate>
+		 {% csrf_token %}
+			{% for field in form %}
+				<div class="form-control flex flex-col ">
+					{{field.label_tag}}
+					{{field}}
+					{% if field.errors %}
+						{% for error in field.errors %}
+							<span class="text-red-500 mb-2">{{error}}</span>
+						{% endfor %}
+					{% endif %}
+				</div>
+			{% endfor %}
+		 <button type='submit' class="bg-indigo-500 text-white rounded w-full p-2">Log In</button>
+	 </form>
 </div>
+
 {% endblock content %}

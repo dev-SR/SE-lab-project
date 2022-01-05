@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block page_title %}
-    Sign UP
+    Sign Up
 {% endblock page_title %}
 
 {% block search-bar %}
@@ -9,18 +9,22 @@
 
 {% block content %}
 
-{% comment %} <div class="input w-full {% if field.errors %}has_error{% endif %}"> {% endcomment %}
-    {% comment %} {{field}}
-    {% if field.errors %}
-        {% for error in field.errors %}
-            <span class="text-red-700 font-medium text-sm">{{error}}</span>
-        {% endfor %}
-    {% endif %} {% endcomment %}
-	<form action="{% url 'users:signup' %}" method="post">
-		{% csrf_token %}
-		{{form.as_p}}
-		<button>Sign UP</button>
-	</form>
+<div class="h-75vh  flex justify-center items-center flex-col">
+	 <form action="" method="post" novalidate>
+		 {% csrf_token %}
+			{% for field in form %}
+				<div class="form-control flex flex-col ">
+					{{field.label_tag}}
+					{{field}}
+					{% if field.errors %}
+						{% for error in field.errors %}
+							<span class="text-red-500 mb-2">{{error}}</span>
+						{% endfor %}
+					{% endif %}
+				</div>
+			{% endfor %}
+		 <button type='submit' class="bg-indigo-500 text-white rounded w-full p-2">Sign Up</button>
+	 </form>
+</div>
 
-{% comment %} </div> {% endcomment %}
 {% endblock content %}
