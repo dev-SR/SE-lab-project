@@ -1,12 +1,29 @@
 {
-  "name": "se-project",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+	"name": "se-project",
+	"version": "1.0.0",
+	"description": "- [Software Engineering Lab Project Using Django](#software-engineering-lab-project-using-django)\r   - [Introduction](#introduction)\r   - [Custom Admin User](#custom-admin-user)\r   - [Seed Data](#seed-data)\r   - [Deployment](#deployment)\r     - [Add Environment Variables](#add-environment-variables)\r     - [Configuring the DataBase](#configuring-the-database)\r     - [Static files](#static-files)\r     - [Heroku Deployment](#heroku-deployment)",
+	"main": "index.js",
+	"scripts": {
+		"css": "npx tailwindcss -i ./static/css/tailwind.css -o ./static/css/styles.css --minify -w",
+		"css:build": "NODE_ENV=production npx tailwindcss -i ./static/css/tailwind.css -o ./static/css/styles.css --minify"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/dev-SR/SE-lab-project.git"
+	},
+	"bugs": {
+		"url": "https://github.com/dev-SR/SE-lab-project/issues"
+	},
+	"homepage": "https://github.com/dev-SR/SE-lab-project#readme",
+	"devDependencies": {
+		"autoprefixer": "^10.4.1",
+		"postcss": "^8.4.5",
+		"tailwindcss": "^3.0.11"
+	},
+	"dependencies": {
+		"@tailwindcss/forms": "^0.4.0"
+	}
 }
