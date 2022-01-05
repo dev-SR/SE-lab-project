@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block page_title %}
+    Sign UP
+{% endblock page_title %}
+
+{% block search-bar %}
+{% endblock search-bar %}
+
+{% block content %}
+
+{% comment %} <div class="input w-full {% if field.errors %}has_error{% endif %}"> {% endcomment %}
+    {% comment %} {{field}}
+    {% if field.errors %}
+        {% for error in field.errors %}
+            <span class="text-red-700 font-medium text-sm">{{error}}</span>
+        {% endfor %}
+    {% endif %} {% endcomment %}
+	<form action="{% url 'users:signup' %}" method="post">
+		{% csrf_token %}
+		{{form.as_p}}
+		<button>Sign UP</button>
+	</form>
+
+{% comment %} </div> {% endcomment %}
+{% endblock content %}
